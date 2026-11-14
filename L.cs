@@ -10,6 +10,7 @@ internal static class L
 
     public static void Info(string m) => _s.LogInfo(m);
     public static void Warn(string m) => _s.LogWarning(m);
+    public static void Debug(string m) => _s.LogDebug(m);
 
     // Update can fail 60x a sec so only log once
     public static void Err(string where, Exception e)

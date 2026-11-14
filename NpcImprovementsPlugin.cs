@@ -5,7 +5,7 @@ using HarmonyLib;
 using UnityEngine;
 
 // Makes some improvements to Npcs
-[BepInPlugin("com.BlueKitsunex777x.npcimprovements", "Block Story - NpcImprovements", "1.0.0")]
+[BepInPlugin("com.BlueKitsunex777x.npcimprovements", "Npc Improvements", "1.0.0")]
 [BepInDependency(Core.Guid)]               // hard dependency on the toolbox; won't load without it
 public class NpcImprovementsPlugin : BaseUnityPlugin
 {
@@ -25,11 +25,7 @@ public class NpcImprovementsPlugin : BaseUnityPlugin
             Name = "NpcImprovements",
             Description = "Makes some improvements to Npcs",
             GetEnabled = () => Enabled,
-            SetEnabled = on =>
-            {
-                PlayerPrefs.SetInt("NpcImprovements_Enabled", on ? 1 : 0); PlayerPrefs.Save();
-                L.Info($"enabled = {on}");
-            },
+            SetEnabled = on => { Enabled = on; PlayerPrefs.SetInt("NpcImprovements_Enabled", on ? 1 : 0); PlayerPrefs.Save(); L.Info($"enabled = {on}"); },
             Config = new ModConfig()
                 .Toggle("Attack Npcs", () => Attack, SetAttack, "On: Attack Npcs, Off: Can't Attack Npcs")
         });
@@ -38,8 +34,8 @@ public class NpcImprovementsPlugin : BaseUnityPlugin
 
     private static void SetAttack(bool value)
     {
+        Attack = value;
         PlayerPrefs.SetInt("NpcImprovements_Attack", value ? 1 : 0);
         PlayerPrefs.Save();
     }
 }
-
