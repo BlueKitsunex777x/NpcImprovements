@@ -17,6 +17,7 @@ public class NpcImprovementsPlugin : BaseUnityPlugin
 
     private void Awake()
     {
+        if (!BSMKCheck.Passed(this)) return;
         try
         {
             new Harmony("com.BlueKitsunex777x.npcimprovements").PatchAll();
