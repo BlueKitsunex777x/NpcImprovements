@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 // Makes some improvements to Npcs
-[BepInPlugin("com.BlueKitsunex777x.npcimprovements", "Npc Improvements", "1.0.0")]
+[BepInPlugin("com.BlueKitsunex777x.npcimprovements", "Npc Improvements", "1.0.1")]
 [BepInDependency(Core.Guid)]               // hard dependency on the toolbox; won't load without it
 public class NpcImprovementsPlugin : BaseUnityPlugin
 {
